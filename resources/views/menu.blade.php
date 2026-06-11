@@ -30,6 +30,14 @@
         .aereo-accent {
             border-top: 4px solid #0052CC;
         }
+        
+        .collapse-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .collapse-icon.open {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body class="min-h-full flex flex-col bg-black text-white relative overflow-x-hidden">
@@ -166,10 +174,16 @@
                 </div>
             </div>
 
-            <!-- SECCIÓN DE DELIVERY/PICK UP -->
-            <div id="delivery-section" class="hidden border-t border-blue-600/30 pt-4 pb-4 space-y-4">
-                <div>
-                    <label class="text-sm font-black uppercase tracking-wider text-gray-400 mb-3 block">Tipo de Entrega</label>
+            <!-- SECCIÓN DE DELIVERY/PICK UP COLAPSABLE -->
+            <div id="delivery-section" class="hidden border-t border-blue-600/30 pt-4">
+                <!-- HEADER COLAPSABLE -->
+                <button onclick="toggleDeliverySection()" class="w-full flex items-center justify-between mb-4 hover:bg-blue-600/10 p-2 rounded transition -ml-2 -mr-2">
+                    <label class="text-sm font-black uppercase tracking-wider text-gray-400 cursor-pointer">Tipo de Entrega</label>
+                    <span id="delivery-toggle-icon" class="collapse-icon text-blue-400 text-lg">▼</span>
+                </button>
+
+                <!-- CONTENIDO COLAPSABLE -->
+                <div id="delivery-content" class="space-y-4 transition-all max-h-96 overflow-hidden">
                     <div class="grid grid-cols-2 gap-3">
                         <label class="flex items-center gap-2 cursor-pointer">
                             <input type="radio" name="delivery_type" value="pickup" onchange="updateDeliveryType('pickup')" class="w-4 h-4 accent-blue-600">
@@ -180,26 +194,27 @@
                             <span class="text-sm font-black uppercase">🚗 Delivery</span>
                         </label>
                     </div>
-                </div>
 
-                <!-- ÁREAS DE ENTREGA (aparece solo si selecciona Delivery) -->
-                <div id="delivery-zones" class="hidden">
-                    <label class="text-sm font-black uppercase tracking-wider text-gray-400 mb-3 block">Área de Entrega</label>
-                    <div id="zones-container" class="space-y-2">
-                        <!-- Se genera dinámicamente -->
+                    <!-- ÁREAS DE ENTREGA (aparece solo si selecciona Delivery) -->
+                    <div id="delivery-zones" class="hidden">
+                        <label class="text-sm font-black uppercase tracking-wider text-gray-400 mb-3 block">Área de Entrega</label>
+                        <div id="zones-container" class="space-y-2">
+                            <!-- Se genera dinámicamente -->
+                        </div>
                     </div>
-                </div>
 
-                <!-- COSTO DE ENTREGA -->
-                <div id="delivery-cost-display" class="hidden bg-blue-600/10 border border-blue-600/30 rounded-lg p-3">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-black uppercase text-gray-400">Costo Delivery:</span>
-                        <span id="delivery-cost" class="text-lg font-black text-blue-400">+$0.00</span>
+                    <!-- COSTO DE ENTREGA -->
+                    <div id="delivery-cost-display" class="hidden bg-blue-600/10 border border-blue-600/30 rounded-lg p-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-black uppercase text-gray-400">Costo Delivery:</span>
+                            <span id="delivery-cost" class="text-lg font-black text-blue-400">+$0.00</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="border-t border-blue-600/30 pt-4 space-y-4">
+            <!-- TOTALES Y BOTONES -->
+            <div class="border-t border-blue-600/30 pt-4 space-y-3 mt-4">
                 <div class="flex justify-between items-center">
                     <span class="text-sm font-black uppercase tracking-wider text-gray-400">Total USD:</span>
                     <span id="total-usd" class="text-2xl font-black text-blue-400">$0.00</span>
@@ -229,7 +244,7 @@
     <div id="payment-modal" class="fixed inset-0 z-40 transition-all duration-300 opacity-0 invisible">
         <div onclick="togglePaymentData()" class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
         
-        <div id="payment-modal-content" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-2xl transform transition-transform duration-300 scale-95">
+        <div id="payment-modal-content" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-2xl transform transition-transform duration-300 scale-95 max-h-96 overflow-y-auto">
             
             <div class="flex items-center justify-between mb-6">
                 <h2 class="text-3xl font-black text-blue-900">Datos de<br><span class="text-blue-600">pago</span></h2>
@@ -239,7 +254,7 @@
             <!-- TRANSFERENCIA BANCARIA -->
             <div class="mb-6">
                 <div class="inline-block bg-blue-900 text-white px-4 py-2 rounded-lg font-black text-sm mb-4">
-                    Transferencia
+                    Tranferencia
                 </div>
                 
                 <div class="space-y-3">
@@ -303,6 +318,7 @@
         let cart = [];
         let cartOpen = false;
         let paymentDataOpen = false;
+        let deliveryExpanded = true;
         let uploadedFile = null;
         let orderData = {
             deliveryType: null,
@@ -340,6 +356,22 @@
                 `;
                 zonesContainer.appendChild(label);
             });
+        }
+
+        function toggleDeliverySection() {
+            deliveryExpanded = !deliveryExpanded;
+            const content = document.getElementById('delivery-content');
+            const icon = document.getElementById('delivery-toggle-icon');
+            
+            if(deliveryExpanded) {
+                content.style.maxHeight = '500px';
+                content.style.opacity = '1';
+                icon.classList.add('open');
+            } else {
+                content.style.maxHeight = '0';
+                content.style.opacity = '0';
+                icon.classList.remove('open');
+            }
         }
 
         function updateDeliveryType(type) {
@@ -406,7 +438,6 @@
                 return;
             }
             
-            // Aquí enviarías el archivo al servidor
             alert('✅ Pago enviado exitosamente: ' + uploadedFile.name);
             togglePaymentData();
             uploadedFile = null;
