@@ -213,6 +213,59 @@
                 </div>
             </div>
 
+            <!-- SECCIÓN DE DATOS DE PAGO COLAPSABLE -->
+            <div id="payment-section" class="hidden border-t border-blue-600/30 pt-4">
+                <!-- HEADER COLAPSABLE -->
+                <button onclick="togglePaymentSection()" class="w-full flex items-center justify-between mb-4 hover:bg-blue-600/10 p-2 rounded transition -ml-2 -mr-2">
+                    <label class="text-sm font-black uppercase tracking-wider text-gray-400 cursor-pointer">💳 Datos de Pago</label>
+                    <span id="payment-toggle-icon" class="collapse-icon text-blue-400 text-lg">▼</span>
+                </button>
+
+                <!-- CONTENIDO COLAPSABLE -->
+                <div id="payment-content" class="space-y-3 transition-all max-h-96 overflow-hidden">
+                    <!-- TRANSFERENCIA BANCARIA -->
+                    <div>
+                        <div class="inline-block bg-blue-600 text-white px-3 py-1 rounded-lg font-black text-xs mb-3">
+                            Transferencia
+                        </div>
+                        
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-start gap-2 bg-blue-600/10 p-2 rounded">
+                                <span class="font-black text-blue-400 min-w-fit">Beneficiario:</span>
+                                <div class="flex-1">
+                                    <p class="font-black text-gray-300">Marcos a. Andrade</p>
+                                    <button onclick="copyToClipboard('Marcos a. Andrade')" class="text-xs text-blue-400 hover:text-blue-300 font-bold">📋 Copiar</button>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-2 bg-blue-600/10 p-2 rounded">
+                                <span class="font-black text-blue-400 min-w-fit">Nro. cuenta:</span>
+                                <div class="flex-1">
+                                    <p class="font-black text-gray-300">0123 4567 8901</p>
+                                    <button onclick="copyToClipboard('0123 4567 8901')" class="text-xs text-blue-400 hover:text-blue-300 font-bold">📋 Copiar</button>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-2 bg-blue-600/10 p-2 rounded">
+                                <span class="font-black text-blue-400 min-w-fit">Banco:</span>
+                                <div class="flex-1">
+                                    <p class="font-black text-gray-300">Salford y asociados</p>
+                                    <button onclick="copyToClipboard('Salford y asociados')" class="text-xs text-blue-400 hover:text-blue-300 font-bold">📋 Copiar</button>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-2 bg-blue-600/10 p-2 rounded">
+                                <span class="font-black text-blue-400 min-w-fit">Teléfono:</span>
+                                <div class="flex-1">
+                                    <p class="font-black text-gray-300">1234-5678</p>
+                                    <button onclick="copyToClipboard('1234-5678')" class="text-xs text-blue-400 hover:text-blue-300 font-bold">📋 Copiar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- TOTALES Y BOTONES -->
             <div class="border-t border-blue-600/30 pt-4 space-y-3 mt-4">
                 <div class="flex justify-between items-center">
@@ -223,87 +276,12 @@
                     <span class="text-xs font-black uppercase text-gray-400">Equivalente Bs:</span>
                     <span id="total-bs" class="text-base font-black text-white">Bs 0.00</span>
                 </div>
-                
-                <!-- BOTÓN DATOS DE PAGO -->
-                <button onclick="togglePaymentData()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-black uppercase tracking-wider shadow-lg shadow-blue-600/50 transition-all duration-200">
-                    💳 Datos de Pago
-                </button>
 
                 <button onclick="sendOrderWhatsApp()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-black uppercase tracking-wider shadow-lg shadow-blue-600/50 transition-all duration-200 flex items-center justify-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.894-.82-1.385-1.82-1.556-2.115-.171-.295-.09-.458.128-.606.243-.179.521-.465.779-.719.259-.254.326-.423.489-.703.163-.28.082-.521-.041-.728-.123-.206-.694-1.666-.951-2.28-.253-.595-.505-.513-.694-.513-.18 0-.389.013-.597.013-.208 0-.52.078-.792.389-.272.31-1.04 1.016-1.04 2.475 0 1.46 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.711.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.006a9.87 9.87 0 00-4.869 1.23c-1.477.879-2.629 2.26-3.287 3.953.621-1.43 1.902-2.633 3.472-3.212 1.57-.579 3.396-.404 4.887.437.364.205.564.339.564.339l-.761 2.752s-.202.086-.532-.027c-1.631-.56-3.477-.196-4.876.983-.691.596-1.164 1.325-1.395 2.138.308-1.289.99-2.533 1.784-3.504 1.012-1.23 2.546-2.124 4.285-2.154l-.285 2.048z"/>
                     </svg>
                     Enviar Pedido
-                </button>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- MODAL DATOS DE PAGO -->
-    <div id="payment-modal" class="fixed inset-0 z-40 transition-all duration-300 opacity-0 invisible">
-        <div onclick="togglePaymentData()" class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
-        
-        <div id="payment-modal-content" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-2xl transform transition-transform duration-300 scale-95 max-h-96 overflow-y-auto">
-            
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="text-3xl font-black text-blue-900">Datos de<br><span class="text-blue-600">pago</span></h2>
-                <button onclick="togglePaymentData()" class="text-2xl font-black text-gray-600 hover:text-gray-900 transition">✕</button>
-            </div>
-
-            <!-- TRANSFERENCIA BANCARIA -->
-            <div class="mb-6">
-                <div class="inline-block bg-blue-900 text-white px-4 py-2 rounded-lg font-black text-sm mb-4">
-                    Tranferencia
-                </div>
-                
-                <div class="space-y-3">
-                    <div class="flex items-start gap-3">
-                        <span class="font-black text-gray-700 min-w-fit">Beneficiario</span>
-                        <div class="flex-1">
-                            <p class="font-black text-gray-900">Marcos a. Andrade</p>
-                            <button onclick="copyToClipboard('Marcos a. Andrade')" class="text-xs text-blue-600 hover:text-blue-700 font-bold mt-1">📋 Copiar</button>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-3">
-                        <span class="font-black text-gray-700 min-w-fit">Nro. de cuenta</span>
-                        <div class="flex-1">
-                            <p class="font-black text-gray-900">0123 4567 8901</p>
-                            <button onclick="copyToClipboard('0123 4567 8901')" class="text-xs text-blue-600 hover:text-blue-700 font-bold mt-1">📋 Copiar</button>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-3">
-                        <span class="font-black text-gray-700 min-w-fit">Banco</span>
-                        <div class="flex-1">
-                            <p class="font-black text-gray-900">Salford y asociados</p>
-                            <button onclick="copyToClipboard('Salford y asociados')" class="text-xs text-blue-600 hover:text-blue-700 font-bold mt-1">📋 Copiar</button>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-3">
-                        <span class="font-black text-gray-700 min-w-fit">Teléfono</span>
-                        <div class="flex-1">
-                            <p class="font-black text-gray-900">1234-5678</p>
-                            <button onclick="copyToClipboard('1234-5678')" class="text-xs text-blue-600 hover:text-blue-700 font-bold mt-1">📋 Copiar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CARGAR PAGO -->
-            <div class="border-t-2 border-gray-300 pt-6">
-                <h3 class="font-black text-gray-900 text-lg mb-4">Cargar Pago</h3>
-                
-                <div class="border-2 border-dashed border-gray-400 rounded-xl p-6 text-center mb-4 hover:border-blue-600 hover:bg-blue-50/50 transition cursor-pointer" onclick="document.getElementById('receipt-input').click()">
-                    <input type="file" id="receipt-input" class="hidden" accept="image/*" onchange="handleFileUpload(event)">
-                    <div class="text-4xl mb-2">☁️</div>
-                    <p class="font-black text-gray-700">Haz clic o arrastra tu archivo</p>
-                </div>
-
-                <button onclick="submitPayment()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-black uppercase tracking-wider shadow-lg shadow-blue-600/50 transition-all duration-200">
-                    cargar pago
                 </button>
             </div>
 
@@ -317,9 +295,8 @@
         let products = [...DEFAULT_PRODUCTS];
         let cart = [];
         let cartOpen = false;
-        let paymentDataOpen = false;
         let deliveryExpanded = true;
-        let uploadedFile = null;
+        let paymentExpanded = false;
         let orderData = {
             deliveryType: null,
             selectedZone: null,
@@ -374,6 +351,22 @@
             }
         }
 
+        function togglePaymentSection() {
+            paymentExpanded = !paymentExpanded;
+            const content = document.getElementById('payment-content');
+            const icon = document.getElementById('payment-toggle-icon');
+            
+            if(paymentExpanded) {
+                content.style.maxHeight = '500px';
+                content.style.opacity = '1';
+                icon.classList.add('open');
+            } else {
+                content.style.maxHeight = '0';
+                content.style.opacity = '0';
+                icon.classList.remove('open');
+            }
+        }
+
         function updateDeliveryType(type) {
             orderData.deliveryType = type;
             const zonesSection = document.getElementById('delivery-zones');
@@ -400,48 +393,12 @@
             updateCartUI();
         }
 
-        function togglePaymentData() {
-            const modal = document.getElementById('payment-modal');
-            const modalContent = document.getElementById('payment-modal-content');
-
-            paymentDataOpen = !paymentDataOpen;
-
-            if(paymentDataOpen) {
-                modal.classList.remove('opacity-0', 'invisible');
-                modalContent.classList.remove('scale-95');
-                modalContent.classList.add('scale-100');
-            } else {
-                modal.classList.add('opacity-0', 'invisible');
-                modalContent.classList.add('scale-95');
-                modalContent.classList.remove('scale-100');
-            }
-        }
-
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                alert('✅ Copiado al portapapeles: ' + text);
+                alert('✅ Copiado: ' + text);
             }).catch(err => {
                 console.error('Error al copiar:', err);
             });
-        }
-
-        function handleFileUpload(event) {
-            uploadedFile = event.target.files[0];
-            if(uploadedFile) {
-                alert('✅ Archivo cargado: ' + uploadedFile.name);
-            }
-        }
-
-        function submitPayment() {
-            if(!uploadedFile) {
-                alert('Por favor carga el comprobante de pago');
-                return;
-            }
-            
-            alert('✅ Pago enviado exitosamente: ' + uploadedFile.name);
-            togglePaymentData();
-            uploadedFile = null;
-            document.getElementById('receipt-input').value = '';
         }
 
         function filterMenu(category) {
@@ -575,6 +532,7 @@
             const itemsContainer = document.getElementById('cart-items');
             const badge = document.getElementById('cart-badge');
             const deliverySection = document.getElementById('delivery-section');
+            const paymentSection = document.getElementById('payment-section');
 
             const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
             if(totalItems > 0) {
@@ -582,9 +540,11 @@
                 badge.classList.remove('hidden');
                 badge.classList.add('flex');
                 deliverySection.classList.remove('hidden');
+                paymentSection.classList.remove('hidden');
             } else {
                 badge.classList.add('hidden');
                 deliverySection.classList.add('hidden');
+                paymentSection.classList.add('hidden');
             }
 
             itemsContainer.innerHTML = '';
