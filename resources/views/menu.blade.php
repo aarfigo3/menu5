@@ -50,7 +50,7 @@
                     </div>
                 </a>
                 
-                <button type="button" onclick="toggleCart()" aria-label="Abrir carrito" class="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-600 text-white shadow-lg shadow-blue-600/50 transition hover:bg-blue-700">
+                <button type="button" onclick="toggleCart()" aria-label="Abrir carrito" class="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-600 text-white shadow-lg shadow-blue-600/50 transition-all duration-200 hover:bg-blue-700">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="8" cy="21" r="1"></circle>
                         <circle cx="19" cy="21" r="1"></circle>
@@ -65,7 +65,7 @@
                     <a href="#inicio" class="flex-1 flex h-10 items-center justify-center text-center text-xs font-black uppercase tracking-wider transition duration-200 hover:bg-blue-600/30 rounded-lg">Inicio</a>
                     <a href="#menu" class="flex-1 flex h-10 items-center justify-center text-center text-xs font-black uppercase tracking-wider transition duration-200 hover:bg-blue-600/30 rounded-lg">Menú</a>
                     <a href="{{ route('admin.products.index') }}" class="flex-1 flex h-10 items-center justify-center text-center text-xs font-black uppercase tracking-wider transition duration-200 hover:bg-blue-600/30 rounded-lg">Admin</a>
-                    <a href="{{ route('admin.zones.index') }}" class="flex-1 flex h-10 items-center justify-center text-center text-xs font-black uppercase tracking-wider transition duration-200 hover:bg-blue-600/30 rounded-lg">🚗 Zonas</a>
+                    <a href="{{ route('admin.zones.index') }}" class="flex-1 flex h-10 items-center justify-center text-center text-xs font-black uppercase tracking-wider transition duration-200 hover:bg-blue-600/30 rounded-lg">Zonas</a>
                     <a href="https://wa.me/584141427822" target="_blank" class="flex-1 flex h-10 items-center justify-center text-center text-xs font-black uppercase tracking-wider transition duration-200 hover:bg-blue-600/30 rounded-lg">WhatsApp</a>
                     <a href="https://www.instagram.com/la_bambucha_burguer/" target="_blank" rel="noreferrer" class="flex-1 flex h-10 items-center justify-center text-center text-xs font-black uppercase tracking-wider transition duration-200 hover:bg-blue-600/30 rounded-lg">Instagram</a>
                 </nav>
@@ -93,10 +93,10 @@
                 </p>
                 
                 <div class="mt-10 grid gap-4 sm:grid-cols-2 md:max-w-2xl">
-                    <a href="#menu" class="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-8 py-4 text-sm font-black uppercase tracking-widest text-white shadow-lg shadow-blue-600/50 transition hover:bg-blue-700">
+                    <a href="#menu" class="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-8 py-4 text-sm font-black uppercase tracking-widest text-white shadow-lg shadow-blue-600/50 transition-all duration-200 hover:bg-blue-700">
                         Ver Menú
                     </a>
-                    <a href="https://wa.me/584141427822" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-blue-600 bg-transparent px-8 py-4 text-sm font-black uppercase tracking-widest text-white transition hover:bg-blue-600/20">
+                    <a href="https://wa.me/584141427822" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-blue-600 bg-transparent px-8 py-4 text-sm font-black uppercase tracking-widest text-white transition-all duration-200 hover:bg-blue-600/10">
                         Ordenar Ahora
                     </a>
                 </div>
@@ -104,7 +104,7 @@
             
             <div class="relative mx-auto hidden max-w-md items-center justify-center md:flex">
                 <div class="absolute h-96 w-96 rounded-full bg-blue-600/20 blur-3xl"></div>
-                <div class="relative w-72 h-72 rounded-full bg-gradient-to-br from-blue-600 to-blue-900 flex items-center justify-center text-white font-black text-5xl shadow-2xl border-4 border-blue-400/30">
+                <div class="relative w-72 h-72 rounded-full bg-gradient-to-br from-blue-600 to-blue-900 flex items-center justify-center text-white font-black text-5xl shadow-2xl border-4 border-blue-400">
                     LB
                 </div>
             </div>
@@ -127,9 +127,9 @@
 
             <div class="mb-10 rounded-lg border border-blue-600/30 bg-white/5 p-3 shadow-lg backdrop-blur-sm">
                 <div class="flex gap-3 overflow-x-auto no-scrollbar">
-                    <button type="button" data-filter="all" onclick="filterMenu('all')" class="shrink-0 rounded-lg border-2 border-blue-600 bg-blue-600 px-5 py-2 text-xs font-black uppercase transition hover:bg-blue-700">Todos</button>
-                    <button type="button" data-filter="combos" onclick="filterMenu('combos')" class="shrink-0 rounded-lg border-2 border-blue-600/30 bg-transparent px-5 py-2 text-xs font-black uppercase text-gray-300 transition hover:border-blue-600/60">Combos</button>
-                    <button type="button" data-filter="hamburguesas" onclick="filterMenu('hamburguesas')" class="shrink-0 rounded-lg border-2 border-blue-600/30 bg-transparent px-5 py-2 text-xs font-black uppercase text-gray-300 transition hover:border-blue-600/60">Hamburguesas</button>
+                    <button type="button" data-filter="all" onclick="filterMenu('all')" class="shrink-0 rounded-lg border-2 border-blue-600 bg-blue-600 px-5 py-2 text-xs font-black uppercase tracking-wider transition duration-200 text-white">Todos</button>
+                    <button type="button" data-filter="combos" onclick="filterMenu('combos')" class="shrink-0 rounded-lg border-2 border-blue-600/30 bg-transparent px-5 py-2 text-xs font-black uppercase tracking-wider transition duration-200 hover:border-blue-600/60 text-gray-300">Combos</button>
+                    <button type="button" data-filter="hamburguesas" onclick="filterMenu('hamburguesas')" class="shrink-0 rounded-lg border-2 border-blue-600/30 bg-transparent px-5 py-2 text-xs font-black uppercase tracking-wider transition duration-200 hover:border-blue-600/60 text-gray-300">Hamburguesas</button>
                 </div>
             </div>
 
@@ -208,11 +208,87 @@
                     <span class="text-xs font-black uppercase text-gray-400">Equivalente Bs:</span>
                     <span id="total-bs" class="text-base font-black text-white">Bs 0.00</span>
                 </div>
-                <button onclick="sendOrderWhatsApp()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-black uppercase tracking-wider shadow-lg shadow-blue-600/50 transition flex items-center justify-center gap-2">
+                
+                <!-- BOTÓN DATOS DE PAGO -->
+                <button onclick="togglePaymentData()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-black uppercase tracking-wider shadow-lg shadow-blue-600/50 transition-all duration-200">
+                    💳 Datos
+                </button>
+
+                <button onclick="sendOrderWhatsApp()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-black uppercase tracking-wider shadow-lg shadow-blue-600/50 transition-all duration-200 flex items-center justify-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.8-1.023-1.31-1.735-1.437-2.012-.127-.277-.04-.427.085-.566.126-.14.28-.347.42-.52.14-.174.186-.286.279-.476.095-.191.047-.359-.024-.502-.071-.144-1.025-2.467-1.404-3.378-.377-.92-.756-.763-.825-.773-.069-.01-.148-.01-.227-.01-.078 0-.203.03-.31.146-.107.116-.408.399-.408.975s.408.902.452.966c.043.064.779 1.183 1.888 1.87 1.1.686 1.925.597 2.273.442.348-.155.553-.34.553-.426 0-.087.088-.232.195-.376.107-.145.536-.687.674-.923.137-.236.275-.204.46-.122.184.082 1.189.559 1.394.661.205.102.342.153.388.238.046.085.046.49-.087.943z"/>
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.894-.82-1.385-1.82-1.556-2.115-.171-.295-.09-.458.128-.606.243-.179.521-.465.779-.719.259-.254.326-.423.489-.703.163-.28.082-.521-.041-.728-.123-.206-.694-1.666-.951-2.28-.253-.595-.505-.513-.694-.513-.18 0-.389.013-.597.013-.208 0-.52.078-.792.389-.272.31-1.04 1.016-1.04 2.475 0 1.46 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.711.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.006a9.87 9.87 0 00-4.869 1.23c-1.477.879-2.629 2.26-3.287 3.953.621-1.43 1.902-2.633 3.472-3.212 1.57-.579 3.396-.404 4.887.437.364.205.564.339.564.339l-.761 2.752s-.202.086-.532-.027c-1.631-.56-3.477-.196-4.876.983-.691.596-1.164 1.325-1.395 2.138.308-1.289.99-2.533 1.784-3.504 1.012-1.23 2.546-2.124 4.285-2.154l-.285 2.048z"/>
                     </svg>
                     Enviar Pedido
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MODAL DATOS DE PAGO -->
+    <div id="payment-modal" class="fixed inset-0 z-40 transition-all duration-300 opacity-0 invisible">
+        <div onclick="togglePaymentData()" class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+        
+        <div id="payment-modal-content" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-2xl transform transition-transform duration-300 scale-95">
+            
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-3xl font-black text-blue-900">Datos de<br><span class="text-blue-600">pago</span></h2>
+                <button onclick="togglePaymentData()" class="text-2xl font-black text-gray-600 hover:text-gray-900 transition">✕</button>
+            </div>
+
+            <!-- TRANSFERENCIA BANCARIA -->
+            <div class="mb-6">
+                <div class="inline-block bg-blue-900 text-white px-4 py-2 rounded-lg font-black text-sm mb-4">
+                    Transferencia
+                </div>
+                
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3">
+                        <span class="font-black text-gray-700 min-w-fit">Beneficiario</span>
+                        <div class="flex-1">
+                            <p class="font-black text-gray-900">Marcos a. Andrade</p>
+                            <button onclick="copyToClipboard('Marcos a. Andrade')" class="text-xs text-blue-600 hover:text-blue-700 font-bold mt-1">📋 Copiar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <span class="font-black text-gray-700 min-w-fit">Nro. de cuenta</span>
+                        <div class="flex-1">
+                            <p class="font-black text-gray-900">0123 4567 8901</p>
+                            <button onclick="copyToClipboard('0123 4567 8901')" class="text-xs text-blue-600 hover:text-blue-700 font-bold mt-1">📋 Copiar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <span class="font-black text-gray-700 min-w-fit">Banco</span>
+                        <div class="flex-1">
+                            <p class="font-black text-gray-900">Salford y asociados</p>
+                            <button onclick="copyToClipboard('Salford y asociados')" class="text-xs text-blue-600 hover:text-blue-700 font-bold mt-1">📋 Copiar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <span class="font-black text-gray-700 min-w-fit">Teléfono</span>
+                        <div class="flex-1">
+                            <p class="font-black text-gray-900">1234-5678</p>
+                            <button onclick="copyToClipboard('1234-5678')" class="text-xs text-blue-600 hover:text-blue-700 font-bold mt-1">📋 Copiar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARGAR PAGO -->
+            <div class="border-t-2 border-gray-300 pt-6">
+                <h3 class="font-black text-gray-900 text-lg mb-4">Cargar Pago</h3>
+                
+                <div class="border-2 border-dashed border-gray-400 rounded-xl p-6 text-center mb-4 hover:border-blue-600 hover:bg-blue-50/50 transition cursor-pointer" onclick="document.getElementById('receipt-input').click()">
+                    <input type="file" id="receipt-input" class="hidden" accept="image/*" onchange="handleFileUpload(event)">
+                    <div class="text-4xl mb-2">☁️</div>
+                    <p class="font-black text-gray-700">Haz clic o arrastra tu archivo</p>
+                </div>
+
+                <button onclick="submitPayment()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-black uppercase tracking-wider shadow-lg shadow-blue-600/50 transition-all duration-200">
+                    cargar pago
                 </button>
             </div>
 
@@ -226,6 +302,8 @@
         let products = [...DEFAULT_PRODUCTS];
         let cart = [];
         let cartOpen = false;
+        let paymentDataOpen = false;
+        let uploadedFile = null;
         let orderData = {
             deliveryType: null,
             selectedZone: null,
@@ -290,6 +368,51 @@
             updateCartUI();
         }
 
+        function togglePaymentData() {
+            const modal = document.getElementById('payment-modal');
+            const modalContent = document.getElementById('payment-modal-content');
+
+            paymentDataOpen = !paymentDataOpen;
+
+            if(paymentDataOpen) {
+                modal.classList.remove('opacity-0', 'invisible');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            } else {
+                modal.classList.add('opacity-0', 'invisible');
+                modalContent.classList.add('scale-95');
+                modalContent.classList.remove('scale-100');
+            }
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('✅ Copiado al portapapeles: ' + text);
+            }).catch(err => {
+                console.error('Error al copiar:', err);
+            });
+        }
+
+        function handleFileUpload(event) {
+            uploadedFile = event.target.files[0];
+            if(uploadedFile) {
+                alert('✅ Archivo cargado: ' + uploadedFile.name);
+            }
+        }
+
+        function submitPayment() {
+            if(!uploadedFile) {
+                alert('Por favor carga el comprobante de pago');
+                return;
+            }
+            
+            // Aquí enviarías el archivo al servidor
+            alert('✅ Pago enviado exitosamente: ' + uploadedFile.name);
+            togglePaymentData();
+            uploadedFile = null;
+            document.getElementById('receipt-input').value = '';
+        }
+
         function filterMenu(category) {
             if (category === 'all') {
                 products = [...DEFAULT_PRODUCTS];
@@ -328,11 +451,11 @@
             productsGrid.innerHTML = products.map(product => {
                 const priceBs = (product.price_usd * TASA_CAMBIO).toFixed(0);
                 return `
-                    <article class="group overflow-hidden rounded-lg border border-blue-600/30 bg-gradient-to-br from-white/5 to-white/[0.02] shadow-xl transition-all duration-300 hover:border-blue-600/80 hover:shadow-xl hover:shadow-blue-600/20">
+                    <article class="group overflow-hidden rounded-lg border border-blue-600/30 bg-gradient-to-br from-white/5 to-white/[0.02] shadow-xl transition-all duration-300 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-600/30">
                         <div class="relative h-64 overflow-hidden bg-gradient-to-br from-gray-900 to-black sm:h-72">
                             <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent flex items-center justify-center font-bold text-gray-600 text-xl">🍔 ${product.category}</div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-                            <span class="absolute left-4 top-4 rounded-lg border border-blue-400 bg-black/70 px-3 py-1 text-xs font-black uppercase tracking-widest text-blue-400">${product.tag || 'Premium'}</span>
+                            <span class="absolute left-4 top-4 rounded-lg border border-blue-400 bg-black/70 px-3 py-1 text-xs font-black uppercase tracking-widest text-blue-400">${product.tag || 'NUEVO'}</span>
                             <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
                                 <div class="max-w-[58%]">
                                     <p class="text-xs font-black uppercase tracking-widest text-blue-400">${product.badge || '⭐'}</p>
@@ -350,8 +473,8 @@
                             <p class="min-h-[56px] text-sm leading-relaxed text-gray-300 sm:text-base">
                                 ${product.description || 'Deliciosa opción del menú'}
                             </p>
-                            <button type="button" onclick="addToCart(${product.id})" class="mt-6 flex w-full items-center justify-center gap-2 rounded-lg px-4 py-3 font-black uppercase transition bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-600/30">
-                                Agregar al carrito
+                            <button type="button" onclick="addToCart(${product.id})" class="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 px-4 py-3 font-black uppercase transition-all duration-200 text-white shadow-lg shadow-blue-600/50">
+                                🛒 Agregar al carrito
                             </button>
                         </div>
                     </article>`;
@@ -487,7 +610,7 @@
                     </div>
 
                     <textarea id="note-${index}" placeholder="Ejemplo: Sin picante, sin cebolla..." 
-                        class="hidden w-full px-3 py-2 rounded-lg bg-white/5 border border-blue-600/30 text-white text-xs placeholder-gray-600 focus:outline-none focus:border-blue-600 focus:ring-blue-500"
+                        class="hidden w-full px-3 py-2 rounded-lg bg-white/5 border border-blue-600/30 text-white text-xs placeholder-gray-600 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
                         rows="2" 
                         onchange="updateItemNote(${item.id}, this.value)"
                         onkeyup="updateItemNote(${item.id}, this.value)"></textarea>
